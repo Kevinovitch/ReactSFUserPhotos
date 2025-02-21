@@ -1,0 +1,32 @@
+
+###> symfony/framework-bundle ###
+api/.env.local
+api/.env.local.php
+api/.env.*.local
+api/config/secrets/prod/prod.decrypt.private.php
+api/public/bundles/
+api/var/
+api/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+api/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+api/public/uploads
+api/public/uploads/photos
+api/public/uploads/avatars
+###> lexik/jwt-authentication-bundle ###
+api/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
+
+# SSL Certificates
+api/cacert.pem
+**/api/cert/cacert.pem
+**/api/config/cert/
