@@ -1,21 +1,32 @@
-SSL Certificate Configuration for AWS S3
+# SSL Certificate Configuration for AWS S3
 
 
 To allow the application to securely connect to AWS S3 services, you need to install the appropriate CA root certificate. Here are the steps to follow:
 
+# Certificate Download
 
-1. Certificate Download
 
-# Download the curl CA certificate
+1) Download the curl CA certificate
+
+
 curl -o cacert.pem https://curl.se/ca/cacert.pem
 
-# Create the destination folder
+
+2) Create the destination folder
+
+
 mkdir -p api/config/cert
 
-# Copy the file in your project folder
+
+3) Copy the file in your project folder
+
+   
 cp cacert.pem api/config/cert/cacert.pem
- 
-2. PHP Configuration
+
+
+# PHP Configuration
+
+
 Modify your php.ini file to point to this certificate:
 
 [curl]
@@ -28,7 +39,7 @@ openssl.cafile = "[CHEMIN_ABSOLU]/api/config/cert/cacert.pem"
 Replace [ABSOLUTE_PATH] with the complete path to your project.
 
 
-3. Validation
+# Validation
 
 
 To verify that your configuration works correctly, you can execute:
@@ -39,7 +50,7 @@ php -r "echo file_get_contents('https://s3.eu-west-3.amazonaws.com');"
 If no SSL error is displayed, the configuration is correct.
 
 
-4. Important Note
+# Important Note
 
 
 The cacert.pem file is excluded from the Git repository via the .gitignore because:
