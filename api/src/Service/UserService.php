@@ -5,6 +5,7 @@ namespace App\Service;
 
 use App\Entity\Photo;
 use App\Entity\User;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -12,6 +13,7 @@ class UserService
 {
 
     public function __construct(
+        private UserRepository $userRepository,
         private EntityManagerInterface $entityManager,
         private UserPasswordHasherInterface $passwordHasher
     )
@@ -26,7 +28,7 @@ class UserService
      */
     public function getActiveUsersCreatedSince($date): array
     {
-        return $this->entityManager->getRepository(User::class)->findActiveUsersCreatedSince($date);
+        return $this->userRepository->findActiveUsersCreatedSince($date);
     }
 
     /**

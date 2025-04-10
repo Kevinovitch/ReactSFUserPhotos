@@ -89,6 +89,8 @@
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/symfony/options-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/symfony/form" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/symfony/polyfill-intl-icu" />
+      <excludeFolder url="file://$MODULE_DIR$/api/vendor/symfony/polyfill-php84" />
+      <excludeFolder url="file://$MODULE_DIR$/api/vendor/nelmio/cors-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

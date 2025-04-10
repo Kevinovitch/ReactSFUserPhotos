@@ -14,7 +14,7 @@ class S3Uploader
     {
         $this->bucket = $bucket;
 
-        // Configuration améliorée du client S3
+        // Improved S3 client configuration
         $this->s3Client = new S3Client([
             'version' => 'latest',
             'region'  => $region,
@@ -23,12 +23,12 @@ class S3Uploader
                 'secret' => $secretAccessKey,
             ],
             'http' => [
-                'verify' => false,  // Désactive temporairement la vérification SSL
+                'verify' => false,  // Temporarily disables SSL verification
                 'connect_timeout' => 5,
                 'timeout' => 10
             ],
-            'debug' => true, // Active les logs de debug
-            'use_path_style_endpoint' => true, // Utilise le style de chemin au lieu du style virtuel
+            'debug' => true, // Activate debug logs
+            'use_path_style_endpoint' => true, // Uses the path style instead of the virtual style
         ]);
     }
 
@@ -50,14 +50,14 @@ class S3Uploader
                 'Body'   => fopen($file->getPathname(), 'rb'),
                 'ACL'    => 'public-read',
                 'ContentType' => $file->getMimeType(),
-                'ServerSideEncryption' => 'AES256', // Ajoute le chiffrement côté serveur
+                'ServerSideEncryption' => 'AES256', // Adds server-side encryption
             ]);
 
-            // Retourne l'URL du fichier uploadé
+            // Returns the URL of the uploaded file
             return $result['ObjectURL'];
 
         } catch (\Exception $e) {
-            // Log l'erreur pour le débogage
+            // Log error for debugging
             error_log('S3 Upload Error: ' . $e->getMessage());
             throw $e;
         }

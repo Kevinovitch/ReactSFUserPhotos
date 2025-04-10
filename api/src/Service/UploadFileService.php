@@ -36,11 +36,12 @@ class UploadFileService
         // represented by the value $destination
         $uploadedFile->move($destination, $newFilename);
 
+        // Generate the URL for the client (replace /public with nothing)
+        $publicUrl = str_replace('/public', '', $fileFolder).'/'.$newFilename;
+
         return[
             'name' => $newFilename,
-            'url' => $destination.$newFilename,
+            'url' => $publicUrl, // Relative URL that will be accessible via browser
         ];
-
     }
-
 }

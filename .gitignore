@@ -32,3 +32,62 @@ cacert.pem
 api/cacert.pem
 **/api/cert/cacert.pem
 **/api/config/cert/
+
+# Frontend dependencies
+frontend/node_modules/
+frontend/npm-debug.log
+frontend/yarn-debug.log
+frontend/yarn-error.log
+frontend/.pnpm-debug.log
+frontend/package-lock.json
+frontend/yarn.lock
+frontend/pnpm-lock.yaml
+
+# Frontend build files
+frontend/dist/
+frontend/build/
+frontend/out/
+frontend/.next/
+frontend/.nuxt/
+
+# Environment and local configuration
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Editor specific files
+frontend/.idea/
+frontend/.vscode/
+frontend/*.swp
+frontend/*.swo
+frontend/.DS_Store
+frontend/*.sublime-workspace
+frontend/*.sublime-project
+
+# Test coverage files
+frontend/coverage/
+
+# Cache and temporary files
+frontend/.cache/
+frontend/.temp/
+frontend/.tmp/
+frontend/.eslintcache
+frontend/.stylelintcache
+frontend/.turbo
+frontend/.parcel-cache
+frontend/.vite/
+
+# Logs
+frontend/logs/
+frontend/*.log
+
+# Debug files
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# Local development files
+frontend/.local/
