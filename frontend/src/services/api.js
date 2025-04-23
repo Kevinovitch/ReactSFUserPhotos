@@ -1,8 +1,7 @@
 import axios from 'axios';
+import { config } from '../config';
 
-// Using relative URL for API endpoints
-// This will be proxied through Vite's development server
-const API_URL = '/api';
+const API_URL = config.apiUrl;
 
 // Create an axios instance with base configuration
 const api = axios.create({
@@ -27,7 +26,6 @@ api.interceptors.request.use(
 // Authentication service
 export const authService = {
     // Register a new user with local storage
-    // Using relative URL that will be proxied to the backend
     register: (userData) => {
         const formData = new FormData();
 
@@ -49,8 +47,7 @@ export const authService = {
             });
         }
 
-        // Using relative URL - Vite proxy will handle redirecting to the actual backend
-        return axios.post(`/api/users/register`, formData, {
+        return axios.post(`${API_URL}/users/register`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -58,7 +55,6 @@ export const authService = {
     },
 
     // Register a new user with AWS storage
-    // Using relative URL that will be proxied to the backend
     registerWithAWS: (userData) => {
         const formData = new FormData();
 
@@ -80,8 +76,7 @@ export const authService = {
             });
         }
 
-        // Using relative URL - Vite proxy will handle redirecting to the actual backend
-        return axios.post(`/api/users/register/aws`, formData, {
+        return axios.post(`${API_URL}/users/register/aws`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
